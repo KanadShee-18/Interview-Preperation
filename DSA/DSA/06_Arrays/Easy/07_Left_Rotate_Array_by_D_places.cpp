@@ -3,6 +3,22 @@
 
 // Link: https://leetcode.com/problems/rotate-array/description/
 
+/**
+Example: Left Rotate
+'arr '= [1,2,3,4,5]
+'k' = 1  rotated array = [2,3,4,5,1]
+'k' = 2  rotated array = [3,4,5,1,2]
+'k' = 3  rotated array = [4,5,1,2,3] and so on.
+
+Example: Right rotate
+Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
