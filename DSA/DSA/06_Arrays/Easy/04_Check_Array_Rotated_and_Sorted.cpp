@@ -6,22 +6,24 @@
 using namespace std;
 
 // TC: O(n)
+/**
+arr = [1, 2, 3, 4, 5, 6]
+after rotating;
+arr = [4, 5, 6, 1, 2, 3]
+here we can see there is only one time arr[i] > arr[i+1] otherwise in every condition arr[i] < arr[i+1] but to check the first and the last element we have to use the remainder(%) operator.
+ 
+*/
 bool checkIsSorted(vector<int> &nums)
 {
     int n = nums.size();
     int count = 0;
-    for (int i = 1; i < n; i++)
-    {
-        if (nums[i - 1] > nums[i])
-        {
-            count++;
+    for (int i = 0; i < n; i ++){
+        if (nums[i] > nums[(i + 1) % n]){
+            count ++;
         }
+        if (count > 1) return false;
     }
-    if (nums[0] < nums[n - 1])
-    {
-        count++;
-    }
-    return (count <= 1);
+    return  true;
 }
 
 int main()
