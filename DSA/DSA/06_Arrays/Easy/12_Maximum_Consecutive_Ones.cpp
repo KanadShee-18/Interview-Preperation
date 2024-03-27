@@ -1,4 +1,4 @@
-/// Maximum Consecutie 1's:
+/// Maximum Consecutie 1's in an array:
 
 // Link: https://leetcode.com/problems/max-consecutive-ones/
 
