@@ -28,7 +28,7 @@ int max_consecutive_ones(vector<int> &nums)
             count++;
             maxi = max(maxi, count);
         }
-        // if ina ny time, it does not found 1, then the count will again set to 0
+        // if at any time, it does not found 1, then the count will again set to 0
         else
         {
             count = 0;
