@@ -5,18 +5,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Brute Force Approach: 
+// Brute Force Approach:
 
 /*
 1. Sort
 2. Find the largest
 3. Traverse from end and find which element is different from largest that will definitely be the second Largest and break
-*/ 
+*/
 
 // TC -> O(nlogn + n)  <- (sorting + traversing)
 
-
-// CODE: 
+// CODE:
 
 // vector<int> secondLargest_secondSmallest(vector<int> arr, int n){
 //     sort (arr.begin(), arr.end());
@@ -40,8 +39,7 @@ using namespace std;
 //     return {sLargest, sSmallest};
 // }
 
-
-// Better Approach: 
+// Better Approach:
 
 /*
 1. Find the largest
@@ -50,8 +48,7 @@ using namespace std;
 
 // For 2 Parse O(n+n) -> O(2n)
 
-
-// CODE: 
+// CODE:
 
 // int secSmallest (vector<int> &arr, int n){
 //     int smallest = INT_MAX;
@@ -90,8 +87,7 @@ using namespace std;
 //     return {sLargest, sSmallest};
 // }
 
-
-// Optimal Approach: 
+// Optimal Approach:
 
 /*
 1. Take arr[0] = largest and sLargest = -1;
@@ -101,57 +97,66 @@ using namespace std;
 
 // As it's just taking 1 pass so TC is O(n)
 
+// CODE:
 
-// CODE: 
-
-int secondSmallestElement (vector<int> &arr, int n) {
+int secondSmallestElement(vector<int> &arr, int n)
+{
     int smallest = arr[0];
     int secondSmallest = INT_MAX;
-    
-    for (auto &it: arr){
+
+    for (auto &it : arr)
+    {
         // if element is smaller than smallest then (sLargest = largest) and (largest = element)
-        if (it < smallest){
+        if (it < smallest)
+        {
             secondSmallest = smallest;
             smallest = it;
         }
-        // there can be some elements which will be greater than smallest but less than sSmallest   
-        else if (it > smallest && it < secondSmallest){
+        // there can be some elements which will be greater than smallest but less than sSmallest
+        else if (it > smallest && it < secondSmallest)
+        {
             secondSmallest = it;
         }
     }
     return secondSmallest;
 }
 
-int secondLargestElement (vector<int> &arr, int n) {
+int secondLargestElement(vector<int> &arr, int n)
+{
     int largest = arr[0];
     int secondLargest = -1;
-    
-    for (auto &it: arr){
+
+    for (auto &it : arr)
+    {
         // if element is greater than largest then (sLargest = largest) and (largest = element)
-        if (it > largest){
+        if (it > largest)
+        {
             secondLargest = largest;
             largest = it;
         }
         // there can be some elements which will be lesser than largest but greater than sLargest
-        else if (it < largest && it > secondLargest){
+        else if (it < largest && it > secondLargest)
+        {
             secondLargest = it;
         }
     }
     return secondLargest;
 }
 
-vector<int> getSecondOrderElements (vector<int> arr, int n) {
+vector<int> getSecondOrderElements(vector<int> arr, int n)
+{
     int sLargest = secondLargestElement(arr, n);
     int sSmallest = secondSmallestElement(arr, n);
     return {sLargest, sSmallest};
 }
 
-int main() {
+int main()
+{
     vector<int> arr = {2, 14, 5, 6, 47, 17, 20};
     // vector<int> ans = secondLargest_secondSmallest(arr, 7);
     // vector<int> ans = secondLargestSmallest(arr, 7);
     vector<int> ans = getSecondOrderElements(arr, 7);
     cout << "The second largest element of the array is: " << ans[0] << endl;
-    cout << "The second smallest element of the array is: "  << ans[1] << endl;
+    cout << "The second smallest element of the array is: " << ans[1] << endl;
     return 0;
 }
