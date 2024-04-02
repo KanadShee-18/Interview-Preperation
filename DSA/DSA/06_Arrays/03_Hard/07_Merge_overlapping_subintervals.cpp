@@ -37,8 +37,8 @@ Intuition: Since we have sorted the intervals, the intervals which will be mergi
 #include <bits/stdc++.h>
 using namespace std;
 
-// Brute:
-/*
+/* Brute:
+~~~~~~~~~~
 Time Complexity: O(N*logN) + O(2*N), where N = the size of the given array.
 Reason: Sorting the given array takes  O(N*logN) time complexity. Now, after that, we are using 2 loops i and j. But while using loop i, we skip all the intervals that are merged with loop j. So, we can conclude that every interval is roughly visited twice(roughly, once for checking or skipping and once for merging). So, the time complexity will be 2*N instead of N2.
 Space Complexity: O(N), as we are using an answer list to store the merged intervals. Except for the answer array, we are not using any extra space.
@@ -76,8 +76,8 @@ vector<vector<int>> mergeIntervals(vector<vector<int>> &intervals)
     return ans;
 }
 
-// Optimal:
-/*
+/* Optimal:
+~~~~~~~~~~~~
 Time Complexity: O(N*logN) + O(N), where N = the size of the given array.
 Reason: Sorting the given array takes  O(N*logN) time complexity. Now, after that, we are just using a single loop that runs for N times. So, the time complexity will be O(N).
 Space Complexity: O(N), as we are using an answer list to store the merged intervals. Except for the answer array, we are not using any extra space.
