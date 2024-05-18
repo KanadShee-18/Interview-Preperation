@@ -99,6 +99,18 @@ void adjacencyList(int m, int n)
     }
 }
 
+vector<vector<int>> printGraph(int V, vector<pair<int, int>> edges)
+{
+    // Code here
+    vector<vector<int>> adjacencyList(V);
+    for (auto it : edges)
+    {
+        adjacencyList[it.first].push_back(it.second);
+        adjacencyList[it.second].push_back(it.first);
+    }
+    return adjacencyList;
+}
+
 // Adjacency List for edge weight:
 void adjacencyListOfEdgeWeight(int m, int n)
 {
